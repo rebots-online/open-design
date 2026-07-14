@@ -1,0 +1,44 @@
+{
+  "schema": "mba.robin.release-manifest.v1",
+  "project": "open-design",
+  "version": "0.14.2",
+  "fork_status": "Operator-owned fork of upstream nexu-io/open-design, disconnected and treated as our own (not a pull/fetch dependency on nexu-io).",
+  "purpose": "end-user-use build staged in a TRACKED dist/ so build output never orphans from the codebase (INC-16 / CC12 / CC13).",
+  "nomenclature": "<slug>-v<version>-<platform>.<ext> — slug FIRST; the disambiguating build-date + sha256 live in this manifest (CC4), not the filename.",
+  "source": {
+    "forgejo_origin": "https://forgejo.robin.mba/rcheung/open-design.git",
+    "upstream_lineage": "nexu-io/open-design (disconnected; fork treated as our own)",
+    "commit": "8480340b39929c153c500895688ccc15c976084a",
+    "branch": "feat/tools-pack-deb-target",
+    "built_via": "pnpm tools-pack linux build --to {appimage|deb} --portable",
+    "portable": true,
+    "containerized": false,
+    "glibc_note": "native build — runs on modern glibc; rebuild with --containerized for Ubuntu 20.04-class distros"
+  },
+  "artifacts": [
+    {
+      "id": "linux-appimage",
+      "platform": "linux",
+      "kind": "appimage",
+      "filename": "open-design-v0.14.2-linux.AppImage",
+      "size_bytes": 408213722,
+      "sha256": "6ba67bf54c0084b6a4d0045aa644e1f31de634e90631083769a321679fc81064",
+      "built_date": "2026-07-14",
+      "process": "pnpm tools-pack linux build --to appimage --portable — rebuilt this session; the 2026-07-13 AppImage had been cleaned from .tmp/ (INC-16 recurrence)."
+    },
+    {
+      "id": "linux-deb",
+      "platform": "linux",
+      "kind": "deb",
+      "filename": "open-design-v0.14.2-linux.deb",
+      "size_bytes": 401560456,
+      "sha256": "9432524a834b2cc6f0966a18d8708ee3f6e9bd10360b6452ead7d120dbefb047",
+      "built_date": "2026-07-13",
+      "debian_package": "open-design-packaged-app",
+      "architecture": "amd64",
+      "process": "pnpm tools-pack linux build --to deb --portable — built 2026-07-13; reused verbatim because the working tree is byte-identical to commit 8480340b3 that produced it. dpkg-deb -I confirms a valid Debian v2.0 package with the full Electron Depends set."
+    }
+  ],
+  "tracked_via_lfs": true,
+  "lfs_store": "https://forgejo.robin.mba/rcheung/open-design.git/info/lfs (CC13)"
+}

@@ -1,0 +1,5 @@
+[lfs]
+	# CC13: forgejo.robin.mba is the authoritative LFS store; GitHub (nexu-io) is a
+	# code-only mirror. Clones from ANY remote fetch LFS objects from Forgejo with
+	# zero per-user setup. Cost-not-security: GitHub never stores/serves objects.
+	url = https://forgejo.robin.mba/rcheung/open-design.git/info/lfs
